@@ -67,6 +67,7 @@ import freenet.support.api.Bucket;
 import freenet.support.io.Closer;
 import freenet.support.io.NativeThread;
 import freenet.support.io.NullBucket;
+import freenet.support.io.NullBucketFactory;
 
 /**
  * Spider. Produces xml index for searching words. 
@@ -422,7 +423,7 @@ public class Spider implements FredPlugin, FredPluginThreadless,
 					filterInput = data.getInputStream();
 					filterOutput = new NullBucket().getOutputStream();
 					ContentFilter.filter(filterInput, filterOutput, mimeType,
-							data.size(), uri.toURI("http://127.0.0.1:8888/"), pageCallBack, null, null);
+							uri.toURI("http://127.0.0.1:8888/"), pageCallBack, null, null);
 					filterInput.close();
 					filterOutput.close();
 				} else {
